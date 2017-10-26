@@ -2,6 +2,12 @@ class Parser
 
   def initialize(path)
     @wrapper = Wrapper.new(path)
+    @purchases = []
+  end
+
+  def setup
+    create_purchases
+    Job.create!(purchases: purchases)
   end
 
   def create_purchases
@@ -16,7 +22,7 @@ class Parser
         name: wrapper_item.merchant_name,
         address: wrapper_item.merchant_address
       )
-      Purchase.create(
+      purchases << Purchase.create(
         purchaser: purchaser,
         item: item,
         merchant: merchant,
@@ -25,4 +31,8 @@ class Parser
 
     end
   end
+
+  private
+
+  attr_reader :purchases
 end
