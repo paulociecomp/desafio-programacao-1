@@ -36,7 +36,11 @@ Acesse a url:
 Para rodar os testes
 ===================
 
-Execute as migrações no ambiente de testes:
+Ainda dentro do diretori parser, execute as migrações no ambiente de testes:
 
   RACK_ENV=test rake db:create
   RACK_ENV=test rake db:migrate
+
+Rode os testes.
+
+  rake test
