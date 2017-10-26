@@ -6,3 +6,7 @@ namespace :db do
     require "./app"
   end
 end
+
+task :test do
+  Dir.glob('./spec/*.rb').each { |file| require file}
+end
